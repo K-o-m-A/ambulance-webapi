@@ -37,7 +37,7 @@ switch ($command) {
         mongo up
     }
     "docker" {
-         docker build -t hocikto/ambulance-wl-webapi:local-build -f ${ProjectRoot}/build/docker/Dockerfile .
+         docker build -t hociktodocker compose --file ./deployments/docker-compose/compose.yaml up/ambulance-wl-webapi:local-build -f ${ProjectRoot}/build/docker/Dockerfile .
    }
     default {
         throw "Unknown command: $command"
