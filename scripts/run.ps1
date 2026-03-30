@@ -22,13 +22,13 @@ switch ($command) {
     "start" {
         try {
             mongo up --detach
-            go run ${ProjectRoot}/cmd/ambulance-api-service
+            go run /home/hocikto/wac/ambulance-webapi/cmd/ambulance-api-service
         } finally {
             mongo down
         }
     }
     "openapi" {
-        docker run --rm -ti -v ${ProjectRoot}:/local openapitools/openapi-generator-cli generate -c /local/scripts/generator-cfg.yaml
+        docker run --rm -ti -v /home/hocikto/wac/ambulance-webapi:/local openapitools/openapi-generator-cli generate -c /local/scripts/generator-cfg.yaml
     }
     "test" {
         go test -v ./...
@@ -37,8 +37,8 @@ switch ($command) {
         mongo up
     }
     "docker" {
-         docker build -t hociktodocker compose --file ./deployments/docker-compose/compose.yaml up/ambulance-wl-webapi:local-build -f ${ProjectRoot}/build/docker/Dockerfile .
-   }
+         docker build -t hocikto/ambulance-wl-webapi:local-build -f /home/hocikto/wac/ambulance-webapi/build/docker/Dockerfile .
+    }
     default {
         throw "Unknown command: $command"
     }
