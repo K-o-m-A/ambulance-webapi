@@ -1,10 +1,10 @@
 package api
 
 import (
-    _ "embed"
-    "net/http"
+	_ "embed"
+	"net/http"
 
-    "github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin"
 )
 
 //go:embed ambulance-wl.openapi.yaml
